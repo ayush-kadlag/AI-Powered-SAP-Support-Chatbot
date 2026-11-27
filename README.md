@@ -16,6 +16,29 @@ The chatbot retrieves relevant information from SAP documentation using vector s
 
 ![SAP AI Support Assistant](screenshots/chatbot_interface.png)
 
+## System Architecture
+
+```mermaid
+flowchart TD
+    A[SAP S/4HANA PDF] --> B[PDF Text Extraction]
+    B --> C[Text Chunking]
+    C --> D[Sentence Transformer Embeddings]
+    D --> E[FAISS Vector Database]
+
+    F[User Question] --> G[Streamlit Chat Interface]
+    G --> H[Query Embedding]
+    H --> I[FAISS Similarity Search]
+    E --> I
+
+    I --> J[Relevant Document Chunks]
+    J --> K[Context Preparation]
+    F --> K
+    K --> L[Prompt Builder]
+    L --> M[Google Gemini API]
+    M --> N[Generated SAP Answer]
+    N --> G
+```
+
 ## Key Features
 
 - **Document Processing:** Extracts text from SAP PDF documentation.
