@@ -12,6 +12,10 @@ This project addresses that problem by combining semantic search with a Large La
 
 The chatbot retrieves relevant information from SAP documentation using vector similarity search and passes that information to Google Gemini to generate contextual answers.
 
+## Application Preview
+
+![SAP AI Support Assistant](screenshots/chatbot_interface.png)
+
 ## Key Features
 
 - **Document Processing:** Extracts text from SAP PDF documentation.
@@ -43,39 +47,15 @@ The chatbot retrieves relevant information from SAP documentation using vector s
 
 ## System Architecture
 
-The chatbot follows a Retrieval-Augmented Generation architecture.
 
-```text
-             USER QUESTION
-                   |
-                   v
-          STREAMLIT INTERFACE
-                   |
-                   v
-          QUERY EMBEDDING
-          Sentence Transformers
-                   |
-                   v
-           FAISS VECTOR SEARCH
-                   |
-                   v
-          RELEVANT SAP CHUNKS
-                   |
-                   v
-            CONTEXT PREPARATION
-                   |
-                   v
-           STRUCTURED PROMPT
-                   |
-                   v
-             GOOGLE GEMINI
-                   |
-                   v
-           GENERATED ANSWER
-                   |
-                   v
-          ANSWER + SOURCE REFERENCES
-```
+## System Architecture
+
+The chatbot follows a Retrieval-Augmented Generation (RAG) architecture.
+
+The system processes SAP documentation, generates embeddings, retrieves relevant information using FAISS, and generates contextual responses using Google Gemini.
+
+For a detailed architecture diagram, see [ARCHITECTURE.md](ARCHITECTURE.md).
+
 
 ## How RAG Works in This Project
 
